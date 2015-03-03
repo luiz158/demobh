@@ -27,6 +27,7 @@ public class ArtigoREST {
 
 		for (Artigo artigo : ArtigoBC.getInstance().findAll()) {
 			ArtigoBody body = new ArtigoBody();
+			body.id = artigo.getId();
 			body.slug = artigo.getSlug();
 			body.titulo = artigo.getTitulo();
 			body.conteudo = artigo.getConteudo();
@@ -48,6 +49,7 @@ public class ArtigoREST {
 		}
 
 		ArtigoBody body = new ArtigoBody();
+		body.id = artigo.getId();
 		body.slug = artigo.getSlug();
 		body.titulo = artigo.getTitulo();
 		body.conteudo = artigo.getConteudo();
@@ -72,6 +74,8 @@ public class ArtigoREST {
 	}
 
 	public static class ArtigoBody {
+		
+		public Integer id;
 
 		public String slug;
 
