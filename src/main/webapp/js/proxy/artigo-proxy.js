@@ -16,6 +16,13 @@ var ArtigoProxy = {
 			  url: this.url,
 			  type: "GET"
 			});
-		} 
+		},
+	
+	carregar : function(id){
+		return $.ajax({
+			  url: this.url + "/" + id,
+			  type: "GET"
+			});
+	}
 		
 }
