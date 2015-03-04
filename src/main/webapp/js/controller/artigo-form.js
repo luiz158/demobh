@@ -1,7 +1,4 @@
 $(function() {
-	
-	$("#menu").load("menu.html");
-	
 	if (id = getUrlParameterByName('id')) {
 		ArtigoProxy.carregar(id).done(carregarOk).fail(carregarFail);
 	}
@@ -15,7 +12,6 @@ $(function() {
 		}
 		ArtigoProxy.criar(artigo).done(criarOk).fail(criarFail);
 	});
-
 });
 
 function getUrlParameterByName(name) {

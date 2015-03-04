@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta charset="utf-8" />
+	<title>Blog BH</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet" />
+</h:head>
+<h:body>
+	<!-- conteudo -->
+	<div class="container">
+		<ui:include src="menu.xhtml" />
+		<ui:insert name="conteudo" />
+	</div>
+
+	<script src="js/lib/jquery-2.1.3.min.js"></script>
+	<script src="js/lib/bootstrap.min.js"></script>
+	<ui:insert name="javascript" />
+</h:body>
+</html>

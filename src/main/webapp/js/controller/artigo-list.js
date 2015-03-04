@@ -1,7 +1,4 @@
 $(function() {
-	
-	$("#menu").load("menu.html");
-	
 	ArtigoProxy.listar().done(listarOk).fail(listarFail);
 
 	$("#recarregar").click(function() {
@@ -10,7 +7,7 @@ $(function() {
 
 	$("#link2artigo").click(function(event) {
 		event.preventDefault();
-		location.href = "artigo-form.html";
+		location.href = "artigo-form.jsf";
 	});
 });
 
@@ -20,7 +17,7 @@ function listarOk(data) {
 		var row = "";
 		row += '<div class="panel panel-default">';
 		row += '<div class="panel-heading">';
-		row += artigo.titulo + ' <a href="artigo-form.html?id=' + artigo.id + '">Editar</a>';
+		row += artigo.titulo + ' <a href="artigo-form.jsf?id=' + artigo.id + '">Editar</a>';
 		row += '</div>';
 		row += '<div class="panel-body">';
 		row += artigo.conteudo;
