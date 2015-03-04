@@ -18,12 +18,14 @@ import blog.business.ArtigoBC;
 import blog.entity.Artigo;
 import br.gov.frameworkdemoiselle.NotFoundException;
 import br.gov.frameworkdemoiselle.transaction.Transactional;
+import br.gov.frameworkdemoiselle.util.Cache;
 import br.gov.frameworkdemoiselle.util.ValidatePayload;
 
 @Path("artigos")
 public class ArtigoREST {
 
 	@GET
+	@Cache("max-age=60")
 	@Produces("application/json")
 	public List<ArtigoBody> listar() throws Exception {
 		ArrayList<ArtigoBody> result = new ArrayList<ArtigoBody>();
@@ -34,10 +36,7 @@ public class ArtigoREST {
 			body.slug = artigo.getSlug();
 			body.titulo = artigo.getTitulo();
 			body.conteudo = artigo.getConteudo();
-
-			body.status = new StatusBody();
-			body.status.id = artigo.getStatus().getId();
-			body.status.descricao = artigo.getStatus().getDescricao();
+			body.status = artigo.getStatus().getDescricao();
 
 			result.add(body);
 		}
@@ -92,13 +91,6 @@ public class ArtigoREST {
 
 		public String conteudo;
 
-		public StatusBody status;
-	}
-
-	public static class StatusBody {
-
-		public Integer id;
-
-		public String descricao;
+		public String status;
 	}
 }

@@ -1,14 +1,18 @@
-$(function(){
+$(function() {
 	ArtigoProxy.listar().done(listarOk).fail(listarFail);
-	
-	$("#link2artigo").click(function(event){
+
+	$("#recarregar").click(function() {
+		ArtigoProxy.listar().done(listarOk).fail(listarFail);
+	});
+
+	$("#link2artigo").click(function(event) {
 		event.preventDefault();
-		location.href="artigo-form.html";
+		location.href = "artigo-form.html";
 	});
 });
 
-function listarOk(data){
-	$.each(data, function(i, artigo){
+function listarOk(data) {
+	$.each(data, function(i, artigo) {
 		console.log(artigo);
 		var row = "";
 		row += '<div class="panel panel-default">';
@@ -19,11 +23,11 @@ function listarOk(data){
 		row += artigo.conteudo;
 		row += '</div>';
 		row += '</div>';
-		
+
 		$("#posts").append(row);
 	});
 }
 
-function listarFail(jqXHR){
+function listarFail(jqXHR) {
 	console.log(jqXHR);
 }
