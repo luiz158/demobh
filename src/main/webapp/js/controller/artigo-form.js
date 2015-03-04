@@ -31,7 +31,10 @@ function criarOk(data, textStatus, jqXHR){
 }
 
 function criarFail(jqXHR, textStatus){
-	console.log(textStatus);
+	$.each(jqXHR.responseJSON, function(i, value){
+		$("#" + value.property + "-message").text(value.message);
+		$("#" + value.property).focus();
+	});
 }
 
 function carregarOk(data){
@@ -42,6 +45,6 @@ function carregarOk(data){
 }
 
 function carregarFail(jqXHR){
-	console.log(jqXHR);
+	console.log(jqXHR.responseJSON);
 }
 
