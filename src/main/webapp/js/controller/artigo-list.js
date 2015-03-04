@@ -1,18 +1,13 @@
 $(function(){
-	
 	ArtigoProxy.listar().done(listarOk).fail(listarFail);
 	
 	$("#link2artigo").click(function(event){
 		event.preventDefault();
-		
 		location.href="artigo-form.html";
-		
 	});
-	
 });
 
 function listarOk(data){
-	
 	$.each(data, function(i, artigo){
 		console.log(artigo);
 		var row = "";
@@ -27,7 +22,6 @@ function listarOk(data){
 		
 		$("#posts").append(row);
 	});
-	
 }
 
 function listarFail(jqXHR){
