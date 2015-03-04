@@ -4,14 +4,14 @@
     "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
 <urlrewrite>
 
-	<rule>
-		<from>^/artigo/(.+)$</from>
-		<to>/artigo-visualizar.xhtml?slug=$1</to>
-	</rule>
+<!-- 	<rule> -->
+<!-- 		<from>^/artigo/(.+)$</from> -->
+<!-- 		<to>/artigo-visualizar.xhtml?slug=$1</to> -->
+<!-- 	</rule> -->
 
-	<rule>
-		<from>^/(.+)/$</from>
-		<to type="permanent-redirect">%{context-path}/$1</to>
-	</rule>
+<!-- 	<rule> -->
+<!-- 		<from>^/(.+)/$</from> -->
+<!-- 		<to type="permanent-redirect">%{context-path}/$1</to> -->
+<!-- 	</rule> -->
 
 </urlrewrite>

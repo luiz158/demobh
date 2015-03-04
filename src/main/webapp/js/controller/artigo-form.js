@@ -1,4 +1,7 @@
 $(function() {
+	
+	$("#menu").load("menu.html");
+	
 	if (id = getUrlParameterByName('id')) {
 		ArtigoProxy.carregar(id).done(carregarOk).fail(carregarFail);
 	}

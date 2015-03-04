@@ -1,4 +1,7 @@
 $(function() {
+	
+	$("#menu").load("menu.html");
+	
 	ArtigoProxy.listar().done(listarOk).fail(listarFail);
 
 	$("#recarregar").click(function() {
