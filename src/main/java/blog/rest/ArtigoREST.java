@@ -12,8 +12,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
+import blog.business.ArtigoBC;
 import blog.entity.Artigo;
-import blog.persistence.ArtigoBC;
 import br.gov.frameworkdemoiselle.NotFoundException;
 import br.gov.frameworkdemoiselle.transaction.Transactional;
 
@@ -74,7 +74,7 @@ public class ArtigoREST {
 	}
 
 	public static class ArtigoBody {
-		
+
 		public Integer id;
 
 		public String slug;
