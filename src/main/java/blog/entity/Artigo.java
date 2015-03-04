@@ -1,9 +1,14 @@
 package blog.entity;
 
+import static javax.persistence.FetchType.LAZY;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.Index;
 
 @Entity
 public class Artigo {
@@ -12,11 +17,29 @@ public class Artigo {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer id;
 
+	@Index(name = "IDX_ARTIGO_SLUG")
 	private String slug;
 
 	private String titulo;
 
 	private String conteudo;
+
+	@ManyToOne(fetch = LAZY)
+	@Index(name = "IDX_ARTIGO_STATUS")
+	private Status status;
+
+	public Artigo() {
+	}
+
+	public Artigo(Integer id, String slug, String titulo, String conteudo, Integer statusId, String statusDescricao) {
+		this.id = id;
+		this.slug = slug;
+		this.titulo = titulo;
+		this.conteudo = conteudo;
+		this.status = new Status();
+		this.status.setId(statusId);
+		this.status.setDescricao(statusDescricao);
+	}
 
 	@Override
 	public int hashCode() {
@@ -78,5 +101,13 @@ public class Artigo {
 
 	public void setConteudo(String conteudo) {
 		this.conteudo = conteudo;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 }

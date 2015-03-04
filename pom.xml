@@ -19,6 +19,7 @@
 	</dependencyManagement>
 
 	<dependencies>
+		<!-- Demoiselle -->
 		<dependency>
 			<groupId>br.gov.frameworkdemoiselle</groupId>
 			<artifactId>demoiselle-rest</artifactId>
@@ -32,6 +33,7 @@
 			<scope>compile</scope>
 		</dependency>
 
+		<!-- Libs auxiliares -->
 		<dependency>
 			<groupId>org.tuckey</groupId>
 			<artifactId>urlrewritefilter</artifactId>
@@ -39,6 +41,12 @@
 			<scope>compile</scope>
 		</dependency>
 
+		<!-- Já está no JBoss -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<scope>provided</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>

@@ -6,6 +6,7 @@
 		<non-jta-data-source>java:jboss/datasources/ExampleDS</non-jta-data-source>
 
 		<class>blog.entity.Artigo</class>
+		<class>blog.entity.Status</class>
 
 		<properties>
 			<property name="hibernate.show_sql" value="true" />
