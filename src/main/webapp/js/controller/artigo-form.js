@@ -5,15 +5,13 @@ $(function(){
 	}
 	
 	$("#salvar").click(function(event){
-		
+		$('span[id $= "-message"]').empty();
 		var artigo = {
 			slug : $("#slug").val(),
 			titulo : $("#titulo").val(),
 			conteudo : $("#conteudo").val(),
 		}
-		
 		ArtigoProxy.criar(artigo).done(criarOk).fail(criarFail);
-		
 	});
 	
 });
@@ -26,7 +24,7 @@ function getUrlParameterByName(name) {
 
 function criarOk(data, textStatus, jqXHR){
 	if (jqXHR.status === 201){
-		alert('Artigo criado com id = ' + data);
+		$("#global-message").text("Artigo criado com sucesso.").show();
 	}
 }
 
