@@ -1,6 +1,6 @@
-package blog.rest.persistence;
+package blog.persistence;
 
-import blog.rest.entity.Artigo;
+import blog.entity.Artigo;
 import br.gov.frameworkdemoiselle.template.DelegateCrud;
 import br.gov.frameworkdemoiselle.util.Beans;
 

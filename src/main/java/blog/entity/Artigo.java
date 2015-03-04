@@ -1,4 +1,4 @@
-package blog.rest.entity;
+package blog.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
