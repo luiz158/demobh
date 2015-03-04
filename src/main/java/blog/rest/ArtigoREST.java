@@ -12,10 +12,13 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import blog.business.ArtigoBC;
 import blog.entity.Artigo;
 import br.gov.frameworkdemoiselle.NotFoundException;
 import br.gov.frameworkdemoiselle.transaction.Transactional;
+import br.gov.frameworkdemoiselle.util.ValidatePayload;
 
 @Path("artigos")
 public class ArtigoREST {
@@ -58,6 +61,7 @@ public class ArtigoREST {
 
 	@POST
 	@Transactional
+	@ValidatePayload
 	@Consumes("application/json")
 	@Produces("text/plain")
 	public Response criar(ArtigoBody body) {
@@ -79,6 +83,7 @@ public class ArtigoREST {
 
 		public String slug;
 
+		@NotEmpty
 		public String titulo;
 
 		public String conteudo;

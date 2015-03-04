@@ -22,7 +22,7 @@ public class ArtigoBC extends DelegateCrud<Artigo, Integer, ArtigoDAO> {
 		for (int i = 0; i < 10; i++) {
 			Artigo artigo = new Artigo();
 			artigo.setTitulo("Título " + i);
-			artigo.setSlug("/titulo" + i);
+			artigo.setSlug("titulo" + i);
 			artigo.setConteudo("Conteúdo teste " + i);
 
 			getDelegate().insert(artigo);
