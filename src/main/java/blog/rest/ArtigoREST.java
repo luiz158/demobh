@@ -10,12 +10,14 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 import blog.business.ArtigoBC;
 import blog.entity.Artigo;
+import blog.entity.Status;
 import br.gov.frameworkdemoiselle.NotFoundException;
 import br.gov.frameworkdemoiselle.transaction.Transactional;
 import br.gov.frameworkdemoiselle.util.Cache;
@@ -27,10 +29,19 @@ public class ArtigoREST {
 	@GET
 	@Cache("max-age=60")
 	@Produces("application/json")
-	public List<ArtigoBody> listar() throws Exception {
+	public List<ArtigoBody> listar(@QueryParam("status") Integer statusId) throws Exception {
 		List<ArtigoBody> result = new ArrayList<ArtigoBody>();
+		List<Artigo> list;
 
-		for (Artigo artigo : ArtigoBC.getInstance().findAll()) {
+		if (statusId != null) {
+			Status status = new Status();
+			status.setId(statusId);
+			list = ArtigoBC.getInstance().find(status);
+		} else {
+			list = ArtigoBC.getInstance().findAll();
+		}
+
+		for (Artigo artigo : list) {
 			ArtigoBody body = new ArtigoBody();
 			body.id = artigo.getId();
 			body.slug = artigo.getSlug();
