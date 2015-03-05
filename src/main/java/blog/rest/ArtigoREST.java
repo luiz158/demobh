@@ -28,7 +28,7 @@ public class ArtigoREST {
 	@Cache("max-age=60")
 	@Produces("application/json")
 	public List<ArtigoBody> listar() throws Exception {
-		ArrayList<ArtigoBody> result = new ArrayList<ArtigoBody>();
+		List<ArtigoBody> result = new ArrayList<ArtigoBody>();
 
 		for (Artigo artigo : ArtigoBC.getInstance().findAll()) {
 			ArtigoBody body = new ArtigoBody();
