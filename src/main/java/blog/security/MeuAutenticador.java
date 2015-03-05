@@ -6,6 +6,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
 import br.gov.frameworkdemoiselle.security.Credentials;
+import br.gov.frameworkdemoiselle.security.InvalidCredentialsException;
 import br.gov.frameworkdemoiselle.security.TokenAuthenticator;
 
 @RequestScoped
@@ -22,6 +23,8 @@ public class MeuAutenticador extends TokenAuthenticator {
 
 		if (credentials.getUsername().equals("cleverson") && credentials.getPassword().equals("segredo")) {
 			principal = new MeuUser(credentials.getUsername());
+		} else {
+			throw new InvalidCredentialsException("lascou-se");
 		}
 
 		return principal;
