@@ -8,6 +8,9 @@ var ArtigoProxy = {
 			type : "POST",
 			data : JSON.stringify(artigo),
 			contentType : "application/json",
+			beforeSend : function(request) {
+				request.setRequestHeader("Authorization", "Token " + sessionStorage.getItem("token"));
+			}
 		});
 	},
 

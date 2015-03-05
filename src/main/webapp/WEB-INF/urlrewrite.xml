@@ -5,6 +5,11 @@
 <urlrewrite>
 
 	<rule>
+		<from>^/login$</from>
+		<to>/login.jsf</to>
+	</rule>
+
+	<rule>
 		<from>^/artigo/listagem$</from>
 		<to>/artigo-list.jsf</to>
 	</rule>

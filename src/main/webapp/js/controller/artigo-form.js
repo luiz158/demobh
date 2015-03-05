@@ -29,10 +29,15 @@ function criarOk(data, textStatus, jqXHR) {
 }
 
 function criarFail(jqXHR, textStatus) {
-	$.each(jqXHR.responseJSON, function(i, value) {
-		$("#" + value.property + "-message").text(value.message);
-		$("#" + value.property).focus();
-	});
+	if (jqXHR.status === 401) {
+		alert("Vc não tem permissão seu orelha seca!");
+		location.href = App.getBaseURL() + "/login";
+	} else {
+		$.each(jqXHR.responseJSON, function(i, value) {
+			$("#" + value.property + "-message").text(value.message);
+			$("#" + value.property).focus();
+		});
+	}
 }
 
 function carregarOk(data) {
