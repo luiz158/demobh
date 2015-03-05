@@ -1,5 +1,7 @@
 $(function() {
-	if (id = getUrlParameterByName('id')) {
+
+	var id;
+	if (id = $("#id").val()) {
 		ArtigoProxy.carregar(id).done(carregarOk).fail(carregarFail);
 	}
 

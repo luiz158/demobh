@@ -7,3 +7,4 @@
 /.externalToolBuilders
 /.DS_Store
 /target
+/src/main/webapp/WEB-INF/.faces-config.xml.jsfdia

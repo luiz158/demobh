@@ -3,17 +3,19 @@
 <h:head>
 	<meta charset="utf-8" />
 	<title>Blog BH</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet" />
+	<link href="#{request.contextPath}/css/bootstrap.min.css" rel="stylesheet" />
 </h:head>
 <h:body>
 	<!-- conteudo -->
 	<div class="container">
+		<input id="base-url" type="hidden" value="#{request.contextPath}" />
 		<ui:include src="menu.xhtml" />
 		<ui:insert name="conteudo" />
 	</div>
 
-	<script src="js/lib/jquery-2.1.3.min.js"></script>
-	<script src="js/lib/bootstrap.min.js"></script>
+	<script src="#{request.contextPath}/js/lib/jquery-2.1.3.min.js"></script>
+	<script src="#{request.contextPath}/js/lib/bootstrap.min.js"></script>
+	<script src="#{request.contextPath}/js/lib/app.js"></script>
 	<ui:insert name="javascript" />
 </h:body>
 </html>

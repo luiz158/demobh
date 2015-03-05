@@ -1,11 +1,13 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" template="/template/main.xhtml">
 
 	<ui:define name="javascript">
-		<script src="js/proxy/artigo-proxy.js"></script>
-		<script src="js/controller/artigo-form.js"></script>
+		<script src="#{request.contextPath}/js/proxy/artigo-proxy.js"></script>
+		<script src="#{request.contextPath}/js/controller/artigo-form.js"></script>
 	</ui:define>
 
 	<ui:define name="conteudo">
+		<input id="id" type="hidden" value="#{param.id}" />
+
 		<div role="tabpanel" style="margin-top: 70px">
 			<!-- Nav tabs -->
 			<ul id="myTab" class="nav nav-tabs" role="tablist">
@@ -27,7 +29,6 @@
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="home">
 					<form>
-						<input type="hidden" id="id" />
 						<div class="row">
 							<div class="col-sm-6 col-sm-offset-3">
 								<h1>Cadastro de Artigo</h1>

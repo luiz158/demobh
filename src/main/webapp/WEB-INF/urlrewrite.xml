@@ -4,14 +4,19 @@
     "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
 <urlrewrite>
 
-<!-- 	<rule> -->
-<!-- 		<from>^/artigo/(.+)$</from> -->
-<!-- 		<to>/artigo-visualizar.xhtml?slug=$1</to> -->
-<!-- 	</rule> -->
+	<rule>
+		<from>^/artigo/listagem$</from>
+		<to>/artigo-list.jsf</to>
+	</rule>
 
-<!-- 	<rule> -->
-<!-- 		<from>^/(.+)/$</from> -->
-<!-- 		<to type="permanent-redirect">%{context-path}/$1</to> -->
-<!-- 	</rule> -->
+	<rule>
+		<from>^/artigo/(\d+)/edit$</from>
+		<to>/artigo-form.jsf?id=$1</to>
+	</rule>
+
+	<rule>
+		<from>^/artigo/new$</from>
+		<to>/artigo-form.jsf</to>
+	</rule>
 
 </urlrewrite>

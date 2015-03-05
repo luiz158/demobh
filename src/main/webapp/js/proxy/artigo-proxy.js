@@ -1,28 +1,28 @@
 var ArtigoProxy = {
-		
-	url : "api/artigos",
-	
-	criar : function(artigo){
+
+	url : App.getBaseURL() + "/api/artigos",
+
+	criar : function(artigo) {
 		return $.ajax({
-		  url: this.url,
-		  type: "POST",
-		  data: JSON.stringify(artigo),
-		  contentType: "application/json",
+			url : this.url,
+			type : "POST",
+			data : JSON.stringify(artigo),
+			contentType : "application/json",
 		});
 	},
-	
-	listar : function(){
+
+	listar : function() {
 		return $.ajax({
-			  url: this.url,
-			  type: "GET"
-			});
-		},
-	
-	carregar : function(id){
+			url : this.url,
+			type : "GET"
+		});
+	},
+
+	carregar : function(id) {
 		return $.ajax({
-			  url: this.url + "/" + id,
-			  type: "GET"
-			});
+			url : this.url + "/" + id,
+			type : "GET"
+		});
 	}
-		
+
 }
