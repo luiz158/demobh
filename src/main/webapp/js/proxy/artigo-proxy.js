@@ -23,6 +23,13 @@ var ArtigoProxy = {
 			url : this.url + "/" + id,
 			type : "GET"
 		});
+	},
+	
+	listarPorStatus : function(status) {
+		return $.ajax({
+			url : this.url + "?status=" + status,
+			type : "GET"
+		});
 	}
 
 }

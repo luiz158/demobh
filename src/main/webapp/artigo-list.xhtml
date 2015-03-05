@@ -2,6 +2,7 @@
 
 	<ui:define name="javascript">
 		<script src="#{request.contextPath}/js/proxy/artigo-proxy.js"></script>
+		<script src="#{request.contextPath}/js/proxy/status-proxy.js"></script>
 		<script src="#{request.contextPath}/js/controller/artigo-list.js"></script>
 	</ui:define>
 
@@ -17,6 +18,9 @@
 
 		<div class="row" style="margin-top: 10px;">
 			<div class="col-sm-6 col-sm-offset-3">
+				<select id="status">
+					<option value="">Selecione um status</option>
+				</select>
 				<button id="recarregar" type="button">Recarregar</button>
 			</div>
 		</div>
