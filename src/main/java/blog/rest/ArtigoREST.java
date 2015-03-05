@@ -18,7 +18,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 import blog.business.ArtigoBC;
 import blog.entity.Artigo;
 import blog.entity.Status;
+import blog.security.MeuUser;
 import br.gov.frameworkdemoiselle.NotFoundException;
+import br.gov.frameworkdemoiselle.security.LoggedIn;
 import br.gov.frameworkdemoiselle.transaction.Transactional;
 import br.gov.frameworkdemoiselle.util.Cache;
 import br.gov.frameworkdemoiselle.util.ValidatePayload;
@@ -74,12 +76,15 @@ public class ArtigoREST {
 	}
 
 	@POST
+	@LoggedIn
 	@Transactional
 	@ValidatePayload
 	@Consumes("application/json")
 	@Produces("text/plain")
 	public Response criar(ArtigoBody body) {
 		ArtigoBC artigoBC = ArtigoBC.getInstance();
+
+		System.out.println(MeuUser.getInstance().getName());
 
 		Artigo artigo = new Artigo();
 		artigo.setSlug(body.slug);
