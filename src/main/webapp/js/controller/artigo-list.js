@@ -48,7 +48,7 @@ function listarOk(data) {
 		row += '<div class="panel-body">';
 		row += artigo.conteudo;
 		row += '<br/>';
-		row += artigo.status;
+		row += artigo.status.descricao;
 		row += '</div>';
 		row += '</div>';
 

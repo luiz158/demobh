@@ -47,7 +47,7 @@ public class ArtigoREST {
 			body.slug = artigo.getSlug();
 			body.titulo = artigo.getTitulo();
 			body.conteudo = artigo.getConteudo();
-			body.status = artigo.getStatus().getDescricao();
+			body.status = artigo.getStatus();
 
 			result.add(body);
 		}
@@ -102,6 +102,6 @@ public class ArtigoREST {
 
 		public String conteudo;
 
-		public String status;
+		public Status status;
 	}
 }
